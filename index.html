@@ -1,7 +1,4 @@
 <!DOCTYPE HTML>
----
-    layout: default
-    ---
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,44 +12,93 @@
                     font-type: bold;
                     color: #f6c800
                 }
-            </style>
+            input, button {
+                font-size: 110px;
+                border: 2px solid #f6c800;
+                border-radius: 4px;
+                padding: 12px 20px;
+                background-color: black;
+                font-family: hp;
+                font-type: bold;
+                color: #f6c800;
+                outline: none;
+            }
+            
+            button {
+                font-size: 110px;
+                border: 2px solid #f6c800;
+                border-radius: 4px;
+                font-family: hp;
+                background-color: #f6c800;
+                color: black
+                
+            }
+            
+                </style>
             </head>
     <body style="background-color:black;">
-        <form>
-            <p><br>Enter Your Magical Password</p><br>
-            <input type="text" name="pswd"><br>
-                Last name:<br>
-                </form>
+        <p id = "txt"><br>Enter Your Magical Password:</p>
+            
+            <center> <input id = "pswd" type="text" name="passsword"><br>
+            <br>
+                
+        <button id = "myBtn" type="button" onclick= "idle();">Check</button>
+        </center>
         <p id="demo"></p>
         
         <script>
             
-            var countDownDate = new Date("Oct 12, 2018 13:29:59").getTime();
+            String.prototype.hashCode = function() {
+                var hash = 0;
+                if (this.length == 0) {
+                    return hash;
+                }
+                for (var i = 0; i < this.length; i++) {
+                    var char = this.charCodeAt(i);
+                    hash = ((hash<<5)-hash)+char;
+                    hash = hash & hash;
+                }
+                return hash;
+            }
             
-            var x = setInterval(function() {
-                                
-                                
-                                var now = new Date().getTime();
-                                var distance = countDownDate - now;
-                                
-                                //  if(distance < 0)
-                                
-                                
-                                
-                                
-                                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                                document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-                                + minutes + "m " + seconds + "s ";
-                                if (distance < 0) {
-                                clearInterval(x);
-                                document.getElementById("demo").innerHTML = "EXPIRED";
-                                }
-                                }, 1000);
-            </script>
+            var input = document.getElementById("pswd");
+            input.addEventListener("keyup", function(event) {
+                                   event.preventDefault();
+                                   if (event.keyCode === 13) {
+                                   document.getElementById("myBtn").click();
+                                   }
+                                   });
+            
+            function back()
+            {
+                document.getElementById("txt").innerHTML = "<br>Enter Your Magical Passwords";
+            }
         
+        function idle()
+        {
+            
+            var psw = document.getElementById("pswd").value;
+            document.getElementById("pswd").value = "";
+            if(psw.hashCode() == -1162459141)
+            {
+                document.getElementById("txt").innerHTML = " <br> <br> Congrats, but your answer isn't in here, try looking deeper";
+                document.getElementById("myBtn").disabled="disable";
+                document.getElementById("myBtn").style="display: none;";
+                document.getElementById("pswd").disabled="disable";
+                document.getElementById("pswd").style="border: 0px solid #f6c800;";
+                
+                
+            }
+            
+            else
+            {
+                document.getElementById("txt").innerHTML = " <br> Mismatch...";
+                setTimeout(back, 1000);
+            }
+        }
+                               </script>
+    <center><center><center><center><!–– C'est ce que vous recherchiez, felicitations. Envoyez POUDLARD à 456e69676d61a@gmail.com––></center></center></center></center>
     </body>
+    
 </html>
 
