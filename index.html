@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
             <style>
                 @font-face { font-family: hp; src: url('HP.TTF'); }
-                p {
+            p{
                     text-align: center;
                     font-size: 110px;
                     margin-top: 0px;
@@ -12,50 +12,48 @@
                     font-type: bold;
                     color: #f6c800
                 }
-            input, button {
+            input, button{
                 font-size: 110px;
                 border: 2px solid #f6c800;
                 border-radius: 4px;
                 padding: 12px 20px;
-                background-color: black;
                 font-family: hp;
-                font-type: bold;
                 color: #f6c800;
+                background-color: black;
                 outline: none;
-            }
+                }
             
-            button {
+            button{
                 font-size: 110px;
                 border: 2px solid #f6c800;
                 border-radius: 4px;
                 font-family: hp;
                 background-color: #f6c800;
                 color: black
-                
-            }
+                }
             
-                </style>
-            </head>
+            </style>
+    </head>
     <body style="background-color:black;">
         <p id = "txt"><br>Enter Your Magical Password:</p>
             
-            <center> <input id = "pswd" type="text" name="passsword"><br>
-            <br>
-                
-        <button id = "myBtn" type="button" onclick= "idle();">Check</button>
-        </center>
-        <p id="demo"></p>
+            <center>
+                <input id = "pswd" type="text" name="passsword"><br><br>
+                <button id = "myBtn" type="button" onclick= "idle();">Check</button>
+            </center>
         
         <script>
-            
-            String.prototype.hashCode = function() {
+            String.prototype.hashCode = function()
+            {
                 var hash = 0;
-                if (this.length == 0) {
+                if (this.length == 0)
+                {
                     return hash;
                 }
-                for (var i = 0; i < this.length; i++) {
+                for (var i = 0; i < this.length; i++)
+                {
                     var char = this.charCodeAt(i);
-                    hash = ((hash<<5)-hash)+char;
+                    hash = ( (hash << 5) - hash ) + char;
                     hash = hash & hash;
                 }
                 return hash;
@@ -86,8 +84,6 @@
                 document.getElementById("myBtn").style="display: none;";
                 document.getElementById("pswd").disabled="disable";
                 document.getElementById("pswd").style="border: 0px solid #f6c800;";
-                
-                
             }
             
             else
@@ -96,7 +92,8 @@
                 setTimeout(back, 1000);
             }
         }
-                               </script>
+        </script>
+        
     <center><center><center><center><!–– C'est ce que vous recherchiez, felicitations. Envoyez POUDLARD à 456e69676d61a@gmail.com––></center></center></center></center>
     </body>
     
