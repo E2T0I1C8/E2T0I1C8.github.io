@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                @font-face { font-family: hp; src: url('HP.TTF'); }
+            p{
+                    text-align: center;
+                    font-size: 90px;
+                    margin-top: 0px;
+                    font-family: hp;
+                    font-type: bold;
+                    color: #f6c800
+                }
+            l{
+                font-size: 50px;
+            }
+            
+            input, button{
+                font-size: 110px;
+                border: 2px solid #f6c800;
+                border-radius: 4px;
+                padding: 12px 20px;
+                font-family: hp;
+                color: #f6c800;
+                background-color: black;
+                outline: none;
+            }
+            
+            button{
+                font-size: 110px;
+                border: 2px solid #f6c800;
+                border-radius: 4px;
+                font-family: hp;
+                background-color: #f6c800;
+                color: black
+            }
+            
+                </style>
+   
+            
+            </style>
+    </head>
+    <body style="background-color:black;">
+        <p>
+        <br>thought it'd still be as easy as dialing a number? <br>
+        
+         <l>33’66’8’777’33’7’777’33’66’33’88’777’7777’44’444’7</l>
+            </p>
+        
+        
+        
+        <center>
+            <p id = "txt" font-size = "30px"></p> </br>
+            <input id = "pswd" type="text" name="passsword"><br><br>
+                <button id = "myBtn" type="button" onclick= "idle();">Check</button>
+                
+                </center>
+        
+        
+        <script>
+            String.prototype.hashCode = function()
+            {
+                var hash = 0;
+                if (this.length == 0)
+                {
+                    return hash;
+                }
+                for (var i = 0; i < this.length; i++)
+                {
+                    var char = this.charCodeAt(i);
+                    hash = ( (hash << 5) - hash ) + char;
+                    hash = hash & hash & hash;
+                }
+                return hash;
+            }
+        
+        var input = document.getElementById("pswd");
+        input.addEventListener("keyup", function(event) {
+                               event.preventDefault();
+                               if (event.keyCode === 13) {
+                               document.getElementById("myBtn").click();
+                               }
+                               });
+                               
+                               function back()
+                               {
+                                   document.getElementById("txt").innerHTML = "";
+                               }
+        
+        function idle()
+        {
+            
+            var psw = document.getElementById("pswd").value;
+            document.getElementById("pswd").value = "";
+            if(psw.hashCode() == -23401643)
+            {
+                document.getElementById("txt").innerHTML= "Congrats";
+                window.open("http://bit.ly/-" + psw,"_self")
+                document.getElementById("myBtn").disabled="disable";
+                document.getElementById("myBtn").style="display: none;";
+                document.getElementById("pswd").disabled="disable";
+                document.getElementById("pswd").style="border: 0px solid #f6c800;";
+            }
+            
+            else
+            {
+                document.getElementById("txt").innerHTML= "Mismatch...";
+                setTimeout(back, 1000);
+            }
+        }
+        </script>
+        
+    
+    </body>
+    
+</html>
+
